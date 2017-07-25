@@ -3,12 +3,35 @@
     "node_modules/codelyzer"
   ],
   "rules": {
+    
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
     "comment-format": [
       true,
       "check-space"
+    ],
+    "completed-docs": [
+      true,
+      {
+        "methods": {
+          "locations": "instance", 
+          "privacies": [
+            "public", 
+            "protected"
+          ]
+        },
+        "properties": {
+          "locations": "instance", 
+          "privacies": [
+            "public", 
+            "protected"
+          ]
+        },
+        "classes": true,
+        "enums": true,
+        "interfaces": true
+      }
     ],
     "curly": true,
     "eofline": true,
@@ -20,7 +43,8 @@
     "import-spacing": true,
     "indent": [
       true,
-      "spaces"
+      "spaces",
+      2
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -110,13 +134,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      ["app", "admin", "cl"],
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      ["app", "admin", "cl"],
       "kebab-case"
     ],
     "use-input-property-decorator": true,
