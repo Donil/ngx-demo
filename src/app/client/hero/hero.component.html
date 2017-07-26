@@ -1,0 +1,26 @@
+<h3>
+  #{{ hero.id }} {{ hero.name }}
+</h3>
+<form novalidate>
+  <div>
+    <label for="name">Name:   </label> 
+    <input name="name"
+           type="text"
+           [(ngModel)]="hero.name" />
+  </div>
+  <div>
+      <label for="health">Health: </label>
+      <input name="health"
+           type="number"
+           [(ngModel)]="hero.health" />
+  </div>
+    <div>
+      <label for="power">Power:  </label>
+      <input name="power"
+           type="number"
+           [(ngModel)]="hero.power" />
+  </div>
+  <div>
+    <button type="submit">Save</button>
+  </div>
+</form>

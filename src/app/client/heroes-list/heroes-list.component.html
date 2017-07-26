@@ -1,3 +1,16 @@
-<p>
-  heroes-list works!
-</p>
+<h2>
+  Heroes
+</h2>
+
+<div *ngIf="heroesLazyLoader | async as heroesList; else loading">
+  <div *ngFor="let hero of heroesList">
+    <a href="javascript:;"
+       (click)="setSelectedHero(hero)">{{ hero.name }}</a>
+  </div>
+</div>
+
+<cl-hero *ngIf="selectedHero"
+         [hero]="selectedHero">
+</cl-hero>
+
+<ng-template #loading>Loading list of heroes...</ng-template>

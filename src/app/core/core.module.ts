@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersService } from './services';
+import { UsersService, HeroesService } from './services';
 
 /**
  * Core module.
@@ -12,7 +12,8 @@ import { UsersService } from './services';
   exports: [
   ],
   providers: [
-    UsersService
+    UsersService,
+    HeroesService
   ],
   declarations: []
 })
