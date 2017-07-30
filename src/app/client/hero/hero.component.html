@@ -1,26 +1,41 @@
-<h3>
-  #{{ hero.id }} {{ hero.name }}
-</h3>
-<form novalidate>
-  <div>
-    <label for="name">Name:   </label> 
-    <input name="name"
-           type="text"
-           [(ngModel)]="hero.name" />
-  </div>
-  <div>
-      <label for="health">Health: </label>
-      <input name="health"
-           type="number"
-           [(ngModel)]="hero.health" />
-  </div>
+<section *ngIf="hero">
+  <h3>
+    #{{ hero.id }} {{ hero.name }}
+  </h3>
+  <form #form="ngForm"
+        (ngSubmit)="onSubmit(form)">
     <div>
-      <label for="power">Power:  </label>
-      <input name="power"
-           type="number"
-           [(ngModel)]="hero.power" />
-  </div>
-  <div>
-    <button type="submit">Save</button>
-  </div>
-</form>
+      <label for="name">Name:   </label> 
+      <input name="name"
+             #name="ngModel"
+             type="text"
+             required
+             [(ngModel)]="hero.name" />
+      <div *ngIf="name.errors && (name.dirty || name.touched)">
+        <div *ngIf="name.errors.required">
+          Name is required
+        </div>
+      </div>
+    </div>
+    <div>
+        <label for="health">Health: </label>
+        <input name="health"
+            type="number"
+            required
+            [(ngModel)]="hero.health" />
+    </div>
+      <div>
+        <label for="power">Power:  </label>
+        <input name="power"
+            required
+            type="number"
+            [(ngModel)]="hero.power" />
+    </div>
+    <div>
+      <button type="submit" [disabled]="form.invalid">Save</button>
+    </div>
+  </form>
+</section>
+<section *ngIf="!hero">
+  Loading hero...
+</section>

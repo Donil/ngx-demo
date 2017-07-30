@@ -1,0 +1,24 @@
+<div>
+  <form (ngSubmit)="login()">
+    <div>
+      <label for="email">
+        <input type="email" 
+               name="email"
+               required
+               email
+               [(ngModel)]="email"/>
+      </label>
+    </div>
+    <div>
+      <label for="password">
+        <input type="password"
+               name="password"
+               required
+               [(ngModel)]="password">
+      </label>
+    </div>
+    <div>
+      <button type="submit">Log In</button>
+    </div>
+  </form>
+</div>

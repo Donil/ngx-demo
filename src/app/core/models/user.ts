@@ -18,4 +18,9 @@ export class User {
    * User role.
    */
   public role: UserRole;
+
+  /**
+   * User email.
+   */
+  public email: string;
 }

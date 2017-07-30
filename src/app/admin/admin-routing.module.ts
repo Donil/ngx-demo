@@ -4,10 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { SettingsComponent } from './settings/settings.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { AdminGuardService } from './admin-guard.service';
 
 const routes: Routes = [{
     path: '',
     component: AdminComponent,
+    canActivate: [AdminGuardService],
+    canActivateChild: [AdminGuardService],
     children: [{
       path: '',
       pathMatch: 'full',

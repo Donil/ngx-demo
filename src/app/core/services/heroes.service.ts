@@ -14,7 +14,7 @@ const heroes: Hero[] = [{
     power: 1000
   }]
 
-const TIMER_DELAY = 1000; // Delay for emulate of long requset
+const REQUEST_DELAY = 1000; // Delay for emulate of long requset
 
 @Injectable()
 export class HeroesService {
@@ -22,13 +22,13 @@ export class HeroesService {
   }
 
   public getHeroes(): Observable<Hero[]> {
-    return Observable.timer(TIMER_DELAY)
+    return Observable.timer(REQUEST_DELAY)
       .mergeMap(() => Observable.of(heroes));
   }
 
   public getHero(id: number): Observable<Hero> {
     const hero = heroes.find(h => h.id === id);
-    return Observable.timer(TIMER_DELAY)
+    return Observable.timer(REQUEST_DELAY)
       .mergeMap(() => Observable.of(hero));
   }
 }

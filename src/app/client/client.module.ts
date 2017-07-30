@@ -7,6 +7,7 @@ import { ClientRoutingModule } from './client-routing.module';
 import { ClientComponent } from './client.component';
 import { HeroesListComponent } from './heroes-list/heroes-list.component';
 import { HeroComponent } from './hero/hero.component';
+import { SelectedHeroComponent } from './selected-hero/selected-hero.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { HeroComponent } from './hero/hero.component';
   declarations: [
     HeroesListComponent,
     ClientComponent,
-    HeroComponent
+    HeroComponent,
+    SelectedHeroComponent
   ]
 })
 export class ClientModule { }

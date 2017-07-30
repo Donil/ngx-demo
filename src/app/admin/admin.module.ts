@@ -7,6 +7,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UserComponent } from './user/user.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AdminComponent } from './admin.component';
+import { AdminGuardService } from './admin-guard.service';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { AdminComponent } from './admin.component';
     AdminComponent
   ],
   providers: [
+    AdminGuardService
   ]
 })
 export class AdminModule { }
