@@ -3,14 +3,14 @@
     #{{ hero.id }} {{ hero.name }}
   </h3>
   <form #form="ngForm"
-        (ngSubmit)="onSubmit(form)">
+        (ngSubmit)="submit(form)">
     <div>
       <label for="name">Name:   </label> 
       <input name="name"
              #name="ngModel"
              type="text"
              required
-             [(ngModel)]="hero.name" />
+             [(ngModel)]="heroName" />
       <div *ngIf="name.errors && (name.dirty || name.touched)">
         <div *ngIf="name.errors.required">
           Name is required
@@ -22,17 +22,18 @@
         <input name="health"
             type="number"
             required
-            [(ngModel)]="hero.health" />
+            [(ngModel)]="health" />
     </div>
       <div>
         <label for="power">Power:  </label>
         <input name="power"
             required
             type="number"
-            [(ngModel)]="hero.power" />
+            [(ngModel)]="power" />
     </div>
     <div>
       <button type="submit" [disabled]="form.invalid">Save</button>
+      <button type="button" (click)="cancel()">Cancel</button>
     </div>
   </form>
 </section>

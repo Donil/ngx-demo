@@ -22,6 +22,7 @@ const users: User[] = [{
   }];
 
 const REQUEST_DELAY = 1000; // Delay for emulate of long requset
+const LOCAL_STORAGE_USER_KEY = 'ngx-demo-user';
 
 /**
  * Users service.
@@ -35,10 +36,16 @@ export class UsersService {
   }
 
   constructor() {
+    // Restore from local storage
+    const raw = localStorage.getItem(LOCAL_STORAGE_USER_KEY);
+    if (raw) {
+      this._currentUser = JSON.parse(raw);
+    }
   }
 
   public login(email: string, password: string): Observable<User> {
     this._currentUser = users.find(u => u.email === email);
+    localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(this._currentUser));
     return Observable.of(this._currentUser)
       .delay(REQUEST_DELAY);
   }

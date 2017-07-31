@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersService, HeroesService, AuthGuardService } from './services';
+import { UsersService, HeroesService, AuthGuardService, CanDiactivateGuardService } from './services';
 import './rxjs.operators';
 
 /**
@@ -15,7 +15,8 @@ import './rxjs.operators';
   providers: [
     UsersService,
     HeroesService,
-    AuthGuardService
+    AuthGuardService,
+    CanDiactivateGuardService
   ],
   declarations: []
 })

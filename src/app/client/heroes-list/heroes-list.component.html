@@ -13,4 +13,12 @@
          [hero]="selectedHero">
 </cl-selected-hero>
 
+<div>
+  <button
+    type="button"
+    [routerLink]="['create']">
+    Add hero
+  </button>
+</div>
+
 <ng-template #loading>Loading list of heroes...</ng-template>
